@@ -70,7 +70,7 @@ $(function(){
       cacheControl = (new Date * 1);
     }
     $.ajax({
-      url: '/site/videos/'+page+'.json?c='+cacheControl,
+      url: '/videos/'+page+'.json?c='+cacheControl,
       dataType: "json",
       success: function(data){
         dataToRender = data;
