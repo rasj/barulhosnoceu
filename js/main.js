@@ -57,7 +57,9 @@ $(function(){
     $('.ver-mais-videos').addClass('carregando');
     $('body').addClass('carregando');
     var dataToRender;
+    var expirado = false;
     var minTime = setTimeout(function(){
+      expirado = true;
       if(dataToRender){
         render(dataToRender);
         dataToRender = null;
@@ -75,7 +77,7 @@ $(function(){
       success: function(data){
         dataToRender = data;
         cacheControl = data.cacheControl;
-        if(minTime === 0){
+        if(minTime === 0 || expirado){
           dataToRender = null;
           render(data);
         }
